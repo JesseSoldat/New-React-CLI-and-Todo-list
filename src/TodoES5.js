@@ -1,5 +1,8 @@
 import React from 'react';
 
+import TodoList from './TodoList';
+
+
 
 var TodoApp = React.createClass({
 
@@ -18,10 +21,15 @@ var TodoApp = React.createClass({
 				text: this.state.text
 			}]);
 			this.setState({
+				items: nextItems,
 				text: ''
 			});
 			console.log(this.state.text);
 		}
+	},
+
+	createItem: function(){
+		
 	},
     render: function() {
         return (
@@ -31,6 +39,8 @@ var TodoApp = React.createClass({
                 	<input onChange={this.onChange} value={this.state.text}/>
                 	<button>{'Add #' + (this.state.items.length + 1)}</button>
                 </form>
+  				<TodoList items={this.state.items}></TodoList>
+             	
             </div>
         );
     }
