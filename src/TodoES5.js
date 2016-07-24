@@ -24,13 +24,30 @@ var TodoApp = React.createClass({
 				items: nextItems,
 				text: ''
 			});
-			console.log(this.state.text);
+			
 		}
 	},
+	onRemove: function(index){
 
-	createItem: function(){
+		var array = this.state.items;
+		
+		for(var i = 0; i < array.length; i++){
+			if(i === index)
+			array.splice(i, 1);
+		}
+
+
+		this.setState({
+			items: array,
+			text: ''
+		})
+
+
+
 		
 	},
+
+
     render: function() {
         return (
             <div>
@@ -39,7 +56,7 @@ var TodoApp = React.createClass({
                 	<input onChange={this.onChange} value={this.state.text}/>
                 	<button>{'Add #' + (this.state.items.length + 1)}</button>
                 </form>
-  				<TodoList items={this.state.items}></TodoList>
+  				<TodoList onRemove={this.onRemove} items={this.state.items}></TodoList>
              	
             </div>
         );

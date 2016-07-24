@@ -3,3 +3,13 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+ul {
+	margin: 0;
+}
+li {
+	display:  inline-block;
+}
+i {
+	display: inline-block;
+	margin-left: 10px;
+}
